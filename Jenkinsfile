@@ -5,6 +5,7 @@ pipeline {
     stage('Build image') {
       steps {
         script {
+        sh 'curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh'
           docker.build("amazonlinux-2023:${env.BUILD_NUMBER}")
         }
       }
